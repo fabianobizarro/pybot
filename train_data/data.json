@@ -1,0 +1,29 @@
+[
+    {
+        "class": "greeting",
+        "sentences": [
+            "how are you?",
+            "how is your day?",
+            "good day",
+            "how is it going today?"
+        ]
+    },
+    {
+        "class": "goodbye",
+        "sentences": [
+            "have a nice day",
+            "see you later",
+            "have a nice day",
+            "talk to you soon"
+        ]
+    },
+    {
+        "class": "sandwich",
+        "sentences": [
+            "make me a sandwich",
+            "can you make a sandwich?",
+            "having a sandwich today?",
+            "what's for lunch?"
+        ]
+    }
+]

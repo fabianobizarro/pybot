@@ -1,0 +1,20 @@
+[
+    {
+        "class": "saudacao",
+        "sentences": [
+            "oi",
+            "e ai",
+            "e ai cara",
+            "ola",
+            "ei"
+        ]
+    },
+    {
+        "class": "cumprimento",
+        "sentences": [
+            "blza?",
+            "como vai voce?",
+            "tudo bem"
+        ]
+    }
+]

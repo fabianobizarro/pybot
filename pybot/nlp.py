@@ -1,8 +1,6 @@
-#!/usr/local/bin/python
 import nltk
-import json
 from nltk.stem import RSLPStemmer
-from pprint import pprint
+from .util import read_json_file
 
 stemmer = RSLPStemmer()
 
@@ -11,14 +9,8 @@ CORPUS_WORDS = {}
 CLASS_WORDS = {}
 
 
-def read_file():
-    with open('./train_data/data.json') as data_file:
-        data = json.load(data_file)
-        return data
-
-
-def train():
-    data = read_file()
+def train(train_data_file):
+    data = read_json_file(train_data_file)
 
     for item in data:
         class_name = item['class']
@@ -59,7 +51,6 @@ def calculate_class_score(sentence, class_name, show_details=False):
 
 
 def classify(sentence):
-
     high_class = None
     high_score = 0
     # loop through our classes

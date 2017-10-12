@@ -1,13 +1,17 @@
 import sys
 sys.path.append('../')
 
+
 import pybot as bot
+
 
 def cumprimento(*params):
     return "estou bem e você?"
 
+
 def saudacao(*params):
     return "olá"
+
 
 bot.train('./data.json')
 

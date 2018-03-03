@@ -1,6 +1,7 @@
 import sys
 sys.path.append('../')
-import pybot as bot
+from pybot import PyBot
+from nltk.stem import RSLPStemmer
 
 
 def cumprimento(*params):
@@ -11,15 +12,15 @@ def saudacao(*params):
     return "olá"
 
 
-def initialize():
+def initialize(bot: PyBot):
     bot.train('./data.json')
-
     bot.register_action('saudacao', saudacao)
     bot.register_action('cumprimento', cumprimento)
 
 
 if __name__ == '__main__':
-    initialize()
-    frase = ' '.join(sys.argv[1:])
-    r = bot.interact(frase)
+    bot = PyBot(RSLPStemmer())
+    initialize(bot)
+    sentence = ' '.join(sys.argv[1:])
+    r = bot.interact(sentence)
     print(r)

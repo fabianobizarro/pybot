@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../')
-from pybot import PyBot
+from pybot.bot import PyBot
 from nltk.stem import RSLPStemmer
 
 
@@ -13,7 +13,7 @@ def saudacao(*params):
 
 
 def initialize(bot: PyBot):
-    bot.train('./data.json')
+    bot.train_file('./data.json')
     bot.register_action('saudacao', saudacao)
     bot.register_action('cumprimento', cumprimento)
 

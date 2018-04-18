@@ -2,4 +2,8 @@ from unittest import TestCase
 
 
 class BotTest(TestCase):
-    pass
+
+
+    def should_initilize_ok(self):
+        pass
+

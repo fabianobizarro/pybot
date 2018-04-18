@@ -67,10 +67,19 @@ class PyBot:
                     print("   match: %s (%s)" % stemmed_word, 1 / self._corpus_words[stemmed_word])
         return score
 
-    def train(self, train_data_file):
-        data = read_json_file(train_data_file)
-
-        for item in data:
+    def _train(self, train_data) -> None:
+        """
+        Train the model with the train_data
+        :param train_data: A dictionary wit the training data in the format:
+            {
+                'class': 'your class name',
+                sentences: [
+                    'your sentences'
+                ]
+            }
+        :return: None
+        """
+        for item in train_data:
             class_name = item['class']
             sentences = item['sentences']
             for sentence in sentences:
@@ -91,6 +100,17 @@ class PyBot:
                         self._corpus_words[stemmed_word] += 1
 
                     self._class_words[data['class']].extend([stemmed_word])
+
+    def train_file(self, train_data_file):
+        data = read_json_file(train_data_file)
+        self._train(data)
+
+    def train_sentence(self, sentence, class_name):
+        train_data = {
+            'class': class_name,
+            'sentences': [sentence]
+        }
+        self._train(train_data)
 
     def classify(self, sentence: str):
         high_class = None

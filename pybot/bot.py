@@ -64,16 +64,17 @@ class PyBot:
                 score += (1 / self._corpus_words[stemmed_word])
 
                 if show_details:
-                    print("   match: %s (%s)" % stemmed_word, 1 / self._corpus_words[stemmed_word])
+                    print("   match: %s (%s)" % stemmed_word,
+                          1 / self._corpus_words[stemmed_word])
         return score
 
-    def _train(self, train_data) -> None:
+    def _train(self, train_data : list) -> None:
         """
         Train the model with the train_data
-        :param train_data: A dictionary wit the training data in the format:
+        :param train_data: A dictionary wit the training data in the following format:
             {
                 'class': 'your class name',
-                sentences: [
+                'sentences': [
                     'your sentences'
                 ]
             }
@@ -83,7 +84,8 @@ class PyBot:
             class_name = item['class']
             sentences = item['sentences']
             for sentence in sentences:
-                self._training_data.append({'class': class_name, 'sentence': sentence})
+                self._training_data.append(
+                    {'class': class_name, 'sentence': sentence})
 
         classes = list(set([a['class'] for a in self._training_data]))
 
@@ -125,4 +127,3 @@ class PyBot:
                 high_score = score
 
         return high_class, high_score
-
